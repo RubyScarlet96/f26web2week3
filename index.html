@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Week 3 Accessibility and Other Stuff</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="skiplinks">
+            <!-- skiplinks are designed to be the first thing the user tabs to, if they are using a keyboard to navigate the site -->
+            <ul>
+                <!-- the link should always start with "skip to" -->
+                <li><a href="#mainnav">Skip to Main Navigation</a></li>
+                <li><a href="#maincontent">Skip To Main Content</a></li>
+                <li><a href="#image">Skip to Image of Cat</a></li>
+                <li><a href="#footer">Skip to Footer</a></li>
+            </ul>
+        </nav>
+    <header>
+        <h1>Week 3 Accessibility and Other Stuff</h1>
+    </header>
+    <nav id="mainnav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main id="maincontent">
+        <section>
+            <!-- use ARIA to tell accessibillity tools which element is a lable
+             for the image, and which has a description of the image, must match id tag -->
+            <img id="image"
+            aria-labelledby="cat-jumping"
+            aria-describedby="cat-description"
+            src="images/cathjumping.jpg" alt="orange cat jumping">
+            <h3 id="cat-jumping">Cat</h3>
+            <p id="cat-description">This is a simple paragraph about the cat.</p>
+        </section>
+
+        <!-- to use schema, you have to define the scope (which element contains all the information)
+         and the schema you are using (ie. person, event, etc) if you decide to use schema use schema.org and lookup whats available -->
+
+        <section itemscope itemtype="https://schema.org/Event">
+            <h3>Career Fair</h3>
+            <!-- use itemprop to define specific pieces of informtion within the schema -->
+            <article>
+                <h4 itemprop="name">Awesome Career Fair</h4>
+                <p><span itemprop="director"> Bob Somebody </span>where employers and job seekers come together to network and explore job opportunities. It provides a platform for companies to showcase their brand and for candidates to learn about potential employers.</p>
+                <p itemprop="startDate"> 2024-06-15 </p>
+            </article>
+        </section>
+    </main>
+    <footer id="footer">
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+ </div>
+</body>
+</html>
